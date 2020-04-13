@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LightswitchComponent } from './lightswitch/lightswitch.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LightswitchComponent
   ],
   imports: [
     BrowserModule,
