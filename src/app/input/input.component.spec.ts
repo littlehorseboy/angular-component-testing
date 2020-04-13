@@ -12,7 +12,7 @@ describe('InputComponent', () => {
       declarations: [InputComponent],
       imports: [FormsModule],
     })
-    .compileComponents();
+    .compileComponents(); // 非 CLI 環境下，能正常讀取外連的 templateUrl 或 styleUrls
   }));
 
   beforeEach(() => {
