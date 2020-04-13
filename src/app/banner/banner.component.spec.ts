@@ -30,33 +30,53 @@ describe('BannerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain "banner works!"', () => {
+  it('should contain "Test Banner"', () => {
+    fixture.detectChanges();
+
     const bannerElement: HTMLElement = fixture.nativeElement;
 
-    expect(bannerElement.textContent).toContain('banner works!');
+    expect(bannerElement.textContent).toContain('Test Banner');
   });
 
-  it('should have <p> with "banner works!"', () => {
+  it('should have <h1> with "Test Banner"', () => {
+    fixture.detectChanges();
+
     const bannerElement: HTMLElement = fixture.nativeElement;
 
-    const p = bannerElement.querySelector('p');
+    const p = bannerElement.querySelector('h1');
 
-    expect(p.textContent.trim()).toEqual('banner works!');
+    expect(p.textContent.trim()).toEqual('Test Banner');
   });
 
-  it('should have <p> with "banner works!"', () => {
+  it('should have <h1> with "Test Banner"', () => {
+    fixture.detectChanges();
+
     const bannerDebugElement: DebugElement = fixture.debugElement;
     const bannerElement: HTMLElement = bannerDebugElement.nativeElement;
 
-    const p = bannerElement.querySelector('p');
+    const p = bannerElement.querySelector('h1');
 
-    expect(p.textContent.trim()).toEqual('banner works!');
+    expect(p.textContent.trim()).toEqual('Test Banner');
+  });
+
+  it('should have <h1> with "Test Title"', () => {
+    fixture.detectChanges();
+
+    component.title = 'Test Title';
+
+    fixture.detectChanges();
+
+    const bannerElement: HTMLElement = fixture.nativeElement;
+
+    const p = bannerElement.querySelector('h1');
+
+    expect(p.textContent.trim()).toEqual('Test Title');
   });
 });

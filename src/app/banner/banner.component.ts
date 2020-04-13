@@ -3,18 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-banner',
   template: `
-    <p>
-      banner works!
-    </p>
+    <h1>
+      {{ title }}
+    </h1>
   `,
   styles: [
+    'h1 { color: green; font-size: 3.5rem }',
   ]
 })
-export class BannerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class BannerComponent {
+  title = 'Test Banner';
 }
