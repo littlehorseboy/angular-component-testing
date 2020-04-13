@@ -1,12 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { InputComponent } from './input.component';
-
-function newEvent(eventName: string, bubbles = false, cancelable = false) {
-  const evt = document.createEvent('CustomEvent');  // MUST be 'CustomEvent'
-  evt.initCustomEvent(eventName, bubbles, cancelable, null);
-  return evt;
-}
 
 describe('InputComponent', () => {
   let component: InputComponent;
@@ -14,7 +9,8 @@ describe('InputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputComponent ]
+      declarations: [InputComponent],
+      imports: [FormsModule],
     })
     .compileComponents();
   }));
@@ -36,11 +32,11 @@ describe('InputComponent', () => {
 
     nameInput.value = 'Quick BROWN';
 
-    nameInput.dispatchEvent(newEvent('input'));
+    nameInput.dispatchEvent(new Event('input'));
 
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.name).toBe('someValue');
+    expect(fixture.componentInstance.name).toBe('Quick BROWN');
     expect(nameDisplay.textContent).toBe('Quick BROWN');
   });
 });
