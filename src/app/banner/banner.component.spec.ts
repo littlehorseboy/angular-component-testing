@@ -1,6 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BannerComponent } from './banner.component';
+import { DebugElement } from '@angular/core';
+
+describe('BannerComponent (minimal)', () => {
+  it('should create', () => {
+    TestBed.configureTestingModule({
+      declarations: [BannerComponent],
+    });
+
+    const fixture = TestBed.createComponent(BannerComponent);
+    const component = fixture.componentInstance;
+
+    expect(component).toBeDefined();
+  });
+});
 
 describe('BannerComponent', () => {
   let component: BannerComponent;
@@ -28,17 +42,21 @@ describe('BannerComponent', () => {
 
     expect(bannerElement.textContent).toContain('banner works!');
   });
-});
 
-describe('BannerComponent (minimal)', () => {
-  it('should create', () => {
-    TestBed.configureTestingModule({
-      declarations: [BannerComponent],
-    });
+  it('should have <p> with "banner works!"', () => {
+    const bannerElement: HTMLElement = fixture.nativeElement;
 
-    const fixture = TestBed.createComponent(BannerComponent);
-    const component = fixture.componentInstance;
+    const p = bannerElement.querySelector('p');
 
-    expect(component).toBeDefined();
+    expect(p.textContent.trim()).toEqual('banner works!');
+  });
+
+  it('should have <p> with "banner works!"', () => {
+    const bannerDebugElement: DebugElement = fixture.debugElement;
+    const bannerElement: HTMLElement = bannerDebugElement.nativeElement;
+
+    const p = bannerElement.querySelector('p');
+
+    expect(p.textContent.trim()).toEqual('banner works!');
   });
 });
