@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LightswitchComponent } from './lightswitch/lightswitch.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LightswitchComponent
+    LightswitchComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
